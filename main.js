@@ -3,7 +3,7 @@ const socket = io('https://streamrtc2020.herokuapp.com/');
 $('#div-chat').hide();
 
 let customConfig;
-const buf = Buffer.from("thanhvlogs167:e7c41532-f68d-11ea-bbcc-0242ac150003");
+
 $.ajax({
 	host: "https://global.xirsys.net",
 	data: {
@@ -16,9 +16,9 @@ $.ajax({
 		//room: "default",
 		secure: 1,
 		 headers: {
-          "Authorization": "Basic " + buf.toString("base64"),
+          "Authorization": "Basic ",
           "Content-Type": "application/json",
-          "Content-Length": bodyString.length
+          "Content-Length": "thanhvlogs167:e7c41532-f68d-11ea-bbcc-0242ac150003"
       }
 	},
 	success: function (data, status) {
