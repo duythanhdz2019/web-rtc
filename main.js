@@ -61,7 +61,7 @@ function playStream(idVideoTag, stream){
 //	playStream('localStream', stream);
 //});
 
-const peer = new Peer({key: 'peerjs', debug: 2, host: 'webrtcserver2020.herokuapp.com', secure: true, port: 443});
+const peer = new Peer({key: 'peerjs', debug: 2, host: 'webrtcserver2020.herokuapp.com', secure: true, port: 443, config: customConfig});
 
 peer.on('open', id => {
 	$('#my-peer').append(id);
