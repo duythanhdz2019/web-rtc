@@ -5,11 +5,13 @@ $('#div-chat').hide();
 let customConfig;
 
 $.ajax({
-	url: "https://service.xirsys.com/ice",
+	url: "https://global.xirsys.net",
 	data: {
 		ident: "thanhvlogs167",
+		path: "/_turn/WebRTC",
+		method: "PUT",
 		secret: "e7c41532-f68d-11ea-bbcc-0242ac150003",
-		domain: "https://duythanhdz2019.github.io/web-rtc/",
+		domain: "https://duythanhdz2019.github.io/web-rtc",
 		application: "default",
 		room: "default",
 		secure: 1
