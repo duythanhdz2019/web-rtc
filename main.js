@@ -1,6 +1,26 @@
-const socket = io('http://localhost:3000');
-
+//const socket = io('http://localhost:3000');
+const socket = io('https://streamrtc2020.herokuapp.com/');
 $('#div-chat').hide();
+
+let customConfig;
+
+$.ajax({
+	url: "https://service.xirsys.com/ice",
+	data: {
+		ident: "thanhvlogs167",
+		secret: "e7c41532-f68d-11ea-bbcc-0242ac150003",
+		domain: "https://duythanhdz2019.github.io/web-rtc/",
+		application: "default",
+		room: "default",
+		secure: 1
+	},
+	success: function (data, status) {
+		//data.d is where the iceServers object lives
+		customConfig = data.d;
+		console.log(customConfig);
+	},
+	async: false
+});
 
 socket.on('DANH_SACH_ONLINE', arrUserInfo => {
 	$('#div-chat').show();
@@ -41,9 +61,7 @@ function playStream(idVideoTag, stream){
 //	playStream('localStream', stream);
 //});
 
-const peer = new Peer(null, {
-	debug: 2
-});
+const peer = new Peer({key: 'peerjs', debug: 2, host: 'webrtcserver2020.herokuapp.com', secure: true, port: 443});
 
 peer.on('open', id => {
 	$('#my-peer').append(id);
